@@ -7,13 +7,17 @@ class Program
         bool passed = false;
         bool keep_going = false;
 
+        Random random = new Random();
+
         // Main game loop
         do
         {
             int guesses_count = 0;
-            Console.Write("What is the magic number? ");
-            string user_magic_num = Console.ReadLine();
-            int magic_num = int.Parse(user_magic_num);
+            int magic_num = random.Next(100);
+
+            // Console.Write("What is the magic number? ");
+            // string user_magic_num = Console.ReadLine();
+            // int magic_num = int.Parse(user_magic_num);
 
             do
             {
