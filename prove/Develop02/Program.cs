@@ -5,6 +5,7 @@ class Program
     static void Main(string[] args)
     {
         int _userInput = 0;
+        string file = "";
         Journal theJournal = new Journal();
         PromptGenerator _randomPrompt = new PromptGenerator();
 
@@ -24,8 +25,8 @@ class Program
             switch (_userInput)
             {
                 case 1:
-                // Write    
-                                
+                    // Write    
+
                     string _prompt = _randomPrompt.GetRandomPrompt();
                     Console.WriteLine($"{_prompt}");
 
@@ -37,26 +38,35 @@ class Program
                     _newEntry._entryText = Console.ReadLine();
                     _newEntry._promptText = _prompt;
 
-                    theJournal.AddEntry(_newEntry);                 
-                    
+                    theJournal.AddEntry(_newEntry);
+
                     break;
                 case 2:
-                // Display
+                    // Display
 
                     theJournal.DisplayAll();
 
                     break;
                 case 3:
-                // Load
-                    Console.WriteLine("Load");
+                    // Load
+                    Console.WriteLine("What is the file name?");
+                    file = Console.ReadLine();
+
+                    theJournal.LoadToFile(file);
+
                     break;
                 case 4:
-                // Save
-                    Console.WriteLine("Save");
+                    // Save
+
+                    Console.WriteLine("What is the file name?");
+                    file = Console.ReadLine();
+
+                    theJournal.SaveToFile(file);
+
                     break;
                 case 5:
-                // Quit
-                    Console.WriteLine("Quit");
+                    // Quit
+                    Environment.Exit(0);
                     break;
                 default:
                     Console.WriteLine("Invalid input! Please enter a number between 1 and 5.");

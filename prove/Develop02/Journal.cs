@@ -1,7 +1,7 @@
 using System;
 using System.IO;
 
-public class Journal 
+public class Journal
 {
     public List<Entry> _entries = new List<Entry>();
 
@@ -16,7 +16,7 @@ public class Journal
         {
             _entry.Display();
             Console.WriteLine();
-        }       
+        }
 
     }
 
@@ -26,12 +26,10 @@ public class Journal
 
         using (StreamWriter outputFile = new StreamWriter(file))
         {
-            // You can add text to the file with the WriteLine method
-            outputFile.WriteLine("This will be the first line in the file.");
-            
-            // You can use the $ and include variables just like with Console.WriteLine
-            string color = "Blue";
-            outputFile.WriteLine($"My favorite color is {color}");
+            foreach (Entry _entry in _entries)
+            {
+                outputFile.WriteLine($"{_entry._date}, {_entry._promptText}, {_entry._entryText}");
+            }
         }
 
     }
@@ -51,6 +49,7 @@ public class Journal
 
             Console.WriteLine($"Date: {_date} - Prompt: {_promptText}");
             Console.WriteLine($"{_entryText}");
+            Console.WriteLine();
         }
 
     }

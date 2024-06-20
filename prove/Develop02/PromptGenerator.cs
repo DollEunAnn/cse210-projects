@@ -14,13 +14,14 @@ public class PromptGenerator
         "How was the weather today?"
     };
 
-    Random _randomPrompt = new Random();
 
     public string GetRandomPrompt()
     {
-        int index = _randomPrompt.Next(_prompts.Count);
+        Random _randomPrompt = new Random();
         
+        int index = _randomPrompt.Next(_prompts.Count);
+
         return _prompts[index];
-    } 
+    }
 
 }
