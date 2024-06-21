@@ -17,7 +17,6 @@ public class Journal
             _entry.Display();
             Console.WriteLine();
         }
-
     }
 
     public void SaveToFile(string file)
@@ -31,7 +30,6 @@ public class Journal
                 outputFile.WriteLine($"{_entry._date}, {_entry._promptText}, {_entry._entryText}");
             }
         }
-
     }
 
     public void LoadToFile(string file)
@@ -51,9 +49,5 @@ public class Journal
             Console.WriteLine($"{_entryText}");
             Console.WriteLine();
         }
-
     }
-
-
-
 }

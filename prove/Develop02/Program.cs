@@ -1,5 +1,7 @@
 using System;
 
+// Exceed Core Requirement: Updated the GetPromptRandom Method where the prompt doesn't repeat
+
 class Program
 {
     static void Main(string[] args)
@@ -83,5 +85,4 @@ class Program
 
         } while (_userInput != 5);
     }
-
 }
