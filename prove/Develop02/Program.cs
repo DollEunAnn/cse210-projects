@@ -1,6 +1,9 @@
 using System;
 
-// Exceed Core Requirement: Updated the GetPromptRandom Method where the prompt doesn't repeat
+// Exceed Core Requirement:
+// - Updated the GetPromptRandom Method where the prompt doesn't repeat
+// - Added more prompts
+// - Added word counter for everytime the user writes an entry but doesn't saves.
 
 class Program
 {
@@ -40,7 +43,10 @@ class Program
                     _newEntry._entryText = Console.ReadLine();
                     _newEntry._promptText = _prompt;
 
+                    theJournal.WordCounter(_newEntry._entryText);
+
                     theJournal.AddEntry(_newEntry);
+                    
                     Console.WriteLine();
 
                     break;

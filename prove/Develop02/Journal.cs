@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 
+// Reference used for word count: https://learn.microsoft.com/en-us/dotnet/csharp/linq/how-to-query-strings (How to count occurrences of a word in a string);
 public class Journal
 {
     public List<Entry> _entries = new List<Entry>();
@@ -49,5 +50,18 @@ public class Journal
             Console.WriteLine($"{_entryText}");
             Console.WriteLine();
         }
+    }
+
+    public void WordCounter(string entry)
+    {
+        string text = entry; 
+
+        //Convert the string into an array of words
+        char[] separators = ['.', '?', '!', ' ', ';', ':', ','];
+        string[] source = text.Split(separators, StringSplitOptions.RemoveEmptyEntries);
+
+        var count = source.Count();
+
+        Console.WriteLine($"Word Count: {count}");
     }
 }
