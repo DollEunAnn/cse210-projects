@@ -27,6 +27,7 @@ class Reference
     public string GetDisplayText()
     {
         string scriptureReference = _endVerse != 0 ? $"{_book} {_chapter}:{_verse}-{_endVerse}" : $"{_book} {_chapter}:{_verse}";
+        
         return  scriptureReference;
     }
     

@@ -3,30 +3,36 @@ using System;
 class Word
 {
     private string _text;
-    private string _isHidden;
+    private bool _isHidden;
 
     public Word(string text)
     {
+        _text = text;
+        _isHidden = false;
 
     }
 
     public void Hide()
     {
+        _isHidden = true;
 
     }
 
     public void Show()
     {
+        _isHidden = false;
 
     }
 
-    public void IsHidden()
+    public bool IsHidden()
     {
-
+        return _isHidden;
     }
 
     public string GetDisplayText()
     {
-        return "";
+        string word = _isHidden ? "_____" : _text;
+        
+        return word;
     }    
 }
