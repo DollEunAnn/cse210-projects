@@ -4,6 +4,7 @@ using System.Linq;
 // https://learn.microsoft.com/en-us/dotnet/api/system.string.join?view=net-8.0
 // https://raisanenmarkus.github.io/csharp/part4/2/
 // https://stackoverflow.com/questions/8474225/how-to-combine-string-to-string-with-spaces-in-between
+// https://www.programiz.com/csharp-programming/arrays
 
 class Scripture
 {
@@ -22,9 +23,25 @@ class Scripture
         }
     }
 
-    public void HideRandomWords(int numberToHIde)
+    public void HideRandomWords(int numberToHide)
     {
+        // checks of the numberToHide 
+        // if numberToHide is greater than the total list count
+        if (numberToHide <= _words.Count())
+        {
+            // loop the word in _words and set the status of some to isHidden = true
+            // loop as many times as indicated to numberToHide
+            int count = 0;
+            while (count < numberToHide)
+            {
+                
+
+                count++;
+
+            }
         
+
+        }
     }
 
     public string GetDisplayText()
