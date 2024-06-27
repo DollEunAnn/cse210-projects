@@ -1,4 +1,9 @@
 using System;
+using System.Linq;
+
+// https://learn.microsoft.com/en-us/dotnet/api/system.string.join?view=net-8.0
+// https://raisanenmarkus.github.io/csharp/part4/2/
+// https://stackoverflow.com/questions/8474225/how-to-combine-string-to-string-with-spaces-in-between
 
 class Scripture
 {
@@ -31,7 +36,9 @@ class Scripture
             displayWords.Add(word.GetDisplayText());
        }
 
-        return " ";
+       string output = string.Join(" ", displayWords.Where(s => !String.IsNullOrEmpty(s)));      
+       
+        return output;
 
     }
 
