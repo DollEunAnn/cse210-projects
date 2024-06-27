@@ -33,14 +33,11 @@ class Scripture
             // loop as many times as indicated to numberToHide
             int count = 0;
             while (count < numberToHide)
-            {
-                
+            {              
 
                 count++;
 
             }
-        
-
         }
     }
 
