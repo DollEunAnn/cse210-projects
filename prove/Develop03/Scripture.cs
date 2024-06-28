@@ -27,13 +27,22 @@ class Scripture
     {
         // checks of the numberToHide 
         // if numberToHide is greater than the total list count
-        if (numberToHide <= _words.Count())
+        if (numberToHide < _words.Count())
         {
             // loop the word in _words and set the status of some to isHidden = true
             // loop as many times as indicated to numberToHide
             int count = 0;
             while (count < numberToHide)
-            {              
+            {
+                Random random = new Random();
+            
+
+                int index = random.Next(1, _words.Count);
+
+                if (!_words[index].IsHidden())
+                {
+                    _words[index].Hide();                    
+                }
 
                 count++;
 
@@ -58,6 +67,15 @@ class Scripture
 
     public bool IsCompletelyHidden()
     {
-        return false;
+        // checks if all the words are hidden
+        foreach(var word in _words)
+        {
+            if(!word.IsHidden())
+            {
+                return false;
+            }
+        }
+
+        return true;
     }
 }
