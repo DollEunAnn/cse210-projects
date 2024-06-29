@@ -25,9 +25,10 @@ class Scripture
 
     public void HideRandomWords(int numberToHide)
     {
+        var unhiddenWords = wordsNotHidden();
         // checks of the numberToHide 
         // if numberToHide is greater than the total list count
-        if (numberToHide <= _words.Count())
+        if (numberToHide <= unhiddenWords.Count() && unhiddenWords.Count() != 1)
         {
             // loop the word in _words and set the status of some to isHidden = true
             // loop as many times as indicated to numberToHide
@@ -35,19 +36,17 @@ class Scripture
             int count = 0;
             while (count < numberToHide)
             {
-                Random random = new Random();
-
-                var unhiddenWords = wordsNotHidden();               
+                Random random = new Random();                              
                 
                 int index = random.Next(unhiddenWords.Count);
 
-                if (!unhiddenWords[index].IsHidden())
-                {
-                    unhiddenWords[index].Hide();                    
-                }
+                unhiddenWords[index].Hide();                    
                 
                 count++;
             }
+        } else {
+
+            unhiddenWords[0].Hide();
         }
     }
 

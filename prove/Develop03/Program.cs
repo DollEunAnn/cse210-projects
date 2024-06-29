@@ -7,8 +7,8 @@ class Program
     static void Main(string[] args)
     {
         string _userInput = "keep_going";
-        string text = $"And my father dwell in a tent.";
-        //string text = $"For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life.";
+        //string text = $"And my father dwell in a tent.";
+        string text = $"For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life.";
 
         Reference _reference = new Reference("John", 3,16);
         Scripture _scripture = new Scripture(_reference, text);
@@ -45,7 +45,8 @@ class Program
                 var notHidden = _scripture.wordsNotHidden();            
 
                 // check if completely hidden
-                _scripture.HideRandomWords(notHidden.Count());
+                _scripture.HideRandomWords(random.Next(1, notHidden.Count()));
+
             } else{
 
                 _userInput = "quit";
