@@ -10,7 +10,7 @@ class Program
         //string text = $"And my father dwell in a tent.";
         string text = $"For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life.";
 
-        Reference _reference = new Reference("John", 3,16);
+        Reference _reference = new Reference("Proverbs", 3,5,6);
         Scripture _scripture = new Scripture(_reference, text);
 
         // string[] source = text.Split(" ", StringSplitOptions.RemoveEmptyEntries);
@@ -47,7 +47,9 @@ class Program
                 // check if completely hidden
                 _scripture.HideRandomWords(random.Next(1, notHidden.Count()));
 
-            } else{
+            } 
+            else
+            {
 
                 _userInput = "quit";
             }

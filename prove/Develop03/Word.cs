@@ -1,5 +1,7 @@
 using System;
 
+// underscores - https://stackoverflow.com/questions/75121857/replacing-a-string-with-an-equal-amount-of-underscores
+
 class Word
 {
     private string _text;
@@ -31,8 +33,15 @@ class Word
 
     public string GetDisplayText()
     {
-        string word = _isHidden ? "_____" : _text;
-        
-        return word;
+        //string word = _isHidden ? "_____" : _text;
+
+        if (_isHidden)
+        {
+            return new string('_', _text.Length);
+        } 
+        else
+        {
+            return _text;
+        }     
     }    
 }
