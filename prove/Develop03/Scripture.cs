@@ -47,6 +47,7 @@ class Scripture
         } else {
 
             unhiddenWords[0].Hide();
+
         }
     }
 
