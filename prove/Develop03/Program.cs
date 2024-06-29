@@ -1,13 +1,14 @@
 using System;
-using System.Security.Cryptography.X509Certificates;
+
+// https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.where?view=net-8.0
 
 class Program
 {
     static void Main(string[] args)
     {
         string _userInput = "keep_going";
-        //string text = $"And my father dwell in a tent.";
-        string text = $"For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life.";
+        string text = $"And my father dwell in a tent.";
+        //string text = $"For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life.";
 
         Reference _reference = new Reference("John", 3,16);
         Scripture _scripture = new Scripture(_reference, text);
@@ -17,9 +18,9 @@ class Program
 
         Random random = new Random();
 
-        while (_userInput != "quit")
-        {        
-            // clear the console
+        do
+        {
+             // clear the console
             Console.Clear();
             Console.WriteLine();
 
@@ -37,20 +38,19 @@ class Program
             Console.WriteLine("Please enter to continue or type 'quit' to finish: ");
             _userInput = Console.ReadLine();
 
-            // gets a random number from the count
-            int randomCountToHide = random.Next(1,4);
-
-            // check if completely hidden
+            // if everthing is hidden and [Enter] is pressed, quit the program
             if(!_scripture.IsCompletelyHidden())
             {
-                _scripture.HideRandomWords(randomCountToHide);
-            }
+                // gets a random number from the count
+                var notHidden = _scripture.wordsNotHidden();            
 
-            // if everthing is hidden and [Enter] is pressed, quit the program
-            if(_scripture.IsCompletelyHidden() == true && _userInput != "quit")
-            {
-                Environment.Exit(0);
+                // check if completely hidden
+                _scripture.HideRandomWords(notHidden.Count());
+            } else{
+
+                _userInput = "quit";
             }
-        }        
+            
+        }   while (_userInput != "quit"); 
     }
 }

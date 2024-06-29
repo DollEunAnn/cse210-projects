@@ -27,25 +27,26 @@ class Scripture
     {
         // checks of the numberToHide 
         // if numberToHide is greater than the total list count
-        if (numberToHide < _words.Count())
+        if (numberToHide <= _words.Count())
         {
             // loop the word in _words and set the status of some to isHidden = true
             // loop as many times as indicated to numberToHide
+            // get the wordsNotHidden -- filter
             int count = 0;
             while (count < numberToHide)
             {
                 Random random = new Random();
-            
 
-                int index = random.Next(1, _words.Count);
+                var unhiddenWords = wordsNotHidden();               
+                
+                int index = random.Next(unhiddenWords.Count);
 
-                if (!_words[index].IsHidden())
+                if (!unhiddenWords[index].IsHidden())
                 {
-                    _words[index].Hide();                    
+                    unhiddenWords[index].Hide();                    
                 }
-
+                
                 count++;
-
             }
         }
     }
@@ -77,5 +78,13 @@ class Scripture
         }
 
         return true;
+    }
+
+    public List<Word> wordsNotHidden()
+    {
+         // get all the _isHidden = false
+        var unhiddenWords = _words.Where(word => !word.IsHidden()).ToList();
+
+        return unhiddenWords;
     }
 }
