@@ -2,7 +2,7 @@ using System;
 
 class Assignment
 {
-    private string _studentName;
+    protected string _studentName;
     private string _topic;
 
     public Assignment(string studentName, string topic)
@@ -13,6 +13,6 @@ class Assignment
 
     public string GetSummary()
     {
-        return $"Student Name: {_studentName} , Topic: {_topic}";
+        return $"{_studentName} - {_topic}";
     }
 }
