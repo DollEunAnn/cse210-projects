@@ -11,6 +11,9 @@ class WritingAssignment : Assignment
 
     public string GetWritingInformation()
     {
-       return $"{_title} by {_studentName}";
+        // returned the _studentName in Assignment.cs to privated the created a method GetStudentName
+        string studentName = GetStudentName();
+
+        return $"{_title} by {studentName}";
     }
 }
