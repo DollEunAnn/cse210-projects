@@ -3,6 +3,7 @@ using System;
 /** 
 Exceed requirements:
  - For the get prompt in Reflecting Activity - prompt shouldn't display twice in the session.
+ -
 
 **/
 class Program
@@ -19,13 +20,25 @@ class Program
             Console.WriteLine("  3. Start listening activity");
             Console.WriteLine("  4. Quit");
             Console.Write("Select a choice from the menu: ");
+
             userInput = Int32.Parse(Console.ReadLine());
 
-            Activity activity = new Activity("Trial", "Test", 10);
-
-            activity.DisplayStartingMessage();
-            activity.ShowSpinner(3);
-            activity.DisplayEndingMessage();
+            switch(userInput) {
+                case 1: //breathing
+                    BreathingActivity breathingActivity = new BreathingActivity();
+                    breathingActivity.DisplayStartingMessage();
+                    breathingActivity.Run();
+                    breathingActivity.DisplayEndingMessage();
+                break;
+                case 2: // reflection
+                break;
+                case 3: // listing
+                break;
+                case 4:
+                break;
+                default:
+                break;
+            }
 
         } while(userInput != 4);
     }
