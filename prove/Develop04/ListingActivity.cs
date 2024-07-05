@@ -76,8 +76,5 @@ class ListingActivity : Activity
         } 
 
         return answers;               
-    }
-
-
-    
+    }  
 }
