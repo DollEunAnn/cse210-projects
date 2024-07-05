@@ -2,6 +2,8 @@ using System;
 
 class ReflectingActivity : Activity
 {
+    private List<int> _usedPrompts = new List<int>();
+    
     List<string> _prompts = new List<string>
     {
         "Think of a time when you stood up for someone else.",
@@ -35,7 +37,20 @@ class ReflectingActivity : Activity
 
     public string GetRandomPrompt()
     {
-        return "";
+        Random _randomPrompt = new Random();
+
+        int index = 0;
+
+        // Loop until get a unique prompt
+        do
+        {
+            index = _randomPrompt.Next(_prompts.Count);
+
+        } while (_usedPrompts.Contains(index)); // Checks if the index exist in the array _usedPrompts
+
+        _usedPrompts.Add(index); // Adds the index to the list _usedPrompts
+
+        return _prompts[index];
     }
 
     public string GetRandomQuestion()
@@ -52,5 +67,7 @@ class ReflectingActivity : Activity
     {
 
     }
+
+    
     
 }

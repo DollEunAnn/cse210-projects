@@ -4,7 +4,7 @@ class Activity
 {
     private string _name;
     private string _description;
-    private int _duration;
+    protected int _duration;
 
     public Activity(string name, string description, int duration)
     {
@@ -18,9 +18,9 @@ class Activity
         Console.Clear();
         Console.WriteLine($"Welcome to the {_name}");
         Console.WriteLine($"{_description}");
-        Console.Write("How long, in seconds, would you like for your session?");
-        int duration = Int32.Parse(Console.ReadLine());       
-        
+        Console.Write("How long, in seconds, would you like for your session? ");
+        _duration = Int32.Parse(Console.ReadLine());       
+    
     }
 
     public void DisplayEndingMessage()
@@ -34,6 +34,44 @@ class Activity
 
     public void ShowSpinner(int seconds)
     {
-        Console.WriteLine("////");
+        string frames = @"/-\|";
+
+        Console.WriteLine("Get ready...");
+        Console.CursorVisible = false;
+
+        for(int i = seconds; i > 0; i--)
+        {
+            foreach(var c in frames)
+            {
+                Console.Write($"\b{c}");
+                Thread.Sleep(300);
+            }
+        }
+
+
+
+            
+
+
+
+
+
+        // for(int i = seconds; i > 0; i--)
+        // {
+        //     Console.Write("\b \b"); // Erase the + character
+        //     Console.Write("/"); // Replace it with the - character
+        //     Thread.Sleep(300);
+        //     Console.Write("\b \b"); // Erase the + character
+        //     Console.Write("-"); // Replace it with the - character
+        //     Thread.Sleep(300);
+        //     Console.Write("\b \b"); // Erase the + character
+        //     Console.Write("\\"); // Replace it with the - character
+        //     Thread.Sleep(300);
+        //     Console.Write("\b \b"); // Erase the + character
+        //     Console.Write("|");
+        //     Thread.Sleep(300);
+        // };
+
+        Console.WriteLine("Go ~");
     }
 }

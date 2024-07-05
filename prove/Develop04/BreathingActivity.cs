@@ -11,6 +11,9 @@ class BreathingActivity : Activity
     public void Run()
     {
         
+        Thread.Sleep(3000);
+        //  
+        
 
     }
     
