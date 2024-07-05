@@ -4,25 +4,17 @@ using System;
 
 class BreathingActivity : Activity
 {
+
     public BreathingActivity(string name = "Breathing Activity", string description = "This activity will help you relax by walking your through breathing in and out slowly. Clear your mind and focus on your breathing.", int duration = 10) : base(name,description,duration)
     {
-               
+
     }
 
     public void Run()
     {          
-        Console.Write("How long, in seconds, would you like for your session? ");
-        int duration = Int32.Parse(Console.ReadLine());
-
-        int userDuration = duration;
+        int userDuration = _duration;
         int breathDuration = 10; // 4 + 6
         int cycle = userDuration / breathDuration;
-
-        Console.Clear();
-        Console.WriteLine("Get ready...");
-        ShowSpinner(5);
-        Console.Write("\b \b");
-        Console.WriteLine(); 
         
         for(int i = 0; i < cycle; i++)
         {

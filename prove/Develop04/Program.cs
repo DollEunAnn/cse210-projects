@@ -2,7 +2,7 @@ using System;
 
 /** 
 Exceed requirements:
- - For the get prompt in Reflecting Activity - prompt shouldn't display twice in the session.
+ - For the get prompt in Reflecting Activity - Make sure no random prompts/questions are selected until they have all been used at least once in that session.
  -
 
 **/
@@ -31,8 +31,16 @@ class Program
                     breathingActivity.DisplayEndingMessage();
                 break;
                 case 2: // reflection
+                    ReflectingActivity reflectingActivity = new ReflectingActivity();
+                    reflectingActivity.DisplayStartingMessage();
+                    reflectingActivity.Run();
+                    reflectingActivity.DisplayEndingMessage();
                 break;
                 case 3: // listing
+                    ListingActivity listingActivity = new ListingActivity();
+                    listingActivity.DisplayStartingMessage();
+                    listingActivity.Run();
+                    listingActivity.DisplayEndingMessage();
                 break;
                 case 4:
                 break;

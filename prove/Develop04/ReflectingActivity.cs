@@ -3,8 +3,9 @@ using System;
 class ReflectingActivity : Activity
 {
     private List<int> _usedPrompts = new List<int>();
+    private List<int> _usedQuestions = new List<int>();
     
-    List<string> _prompts = new List<string>
+    private List<string> _prompts = new List<string>
     {
         "Think of a time when you stood up for someone else.",
         "Think of a time when you did something really difficult.",
@@ -12,7 +13,7 @@ class ReflectingActivity : Activity
         "Think of a time when you did something truly selfless.",
     };
 
-    List<string> _questions = new List<string>
+    private List<string> _questions = new List<string>
     {
         "Why was this experience meaningful to you?",
         "Have you ever done anything like this before?",
@@ -32,6 +33,39 @@ class ReflectingActivity : Activity
 
     public void Run()
     {
+        Console.WriteLine("Consider the following prompt:");
+        Console.WriteLine();
+        
+        DisplayPrompt();
+        
+        Console.WriteLine();
+        Console.WriteLine("When you have something in mind, press enter to continue.");
+        var key = Console.ReadKey();
+        Console.WriteLine();
+
+        Console.WriteLine("Now ponder on each of the following questions as they related to this experience.");
+
+        Console.WriteLine();
+        Console.Write("You may begin in: ");
+        for(int j = 5; j > 0; j--) // countdown
+        {
+            Console.Write(j);
+            Thread.Sleep(1000);
+            Console.Write("\b \b");
+        }
+
+        // clear Console then Show Questions with Spinner
+        Console.Clear();
+        
+        int userDuration = _duration;
+        int questionDuration = 5;
+        int cycle = userDuration / questionDuration;
+
+        for(int i = 0; i < cycle; i++)
+        {
+            DisplayQuestion();
+            Console.Write("\b");           
+        }
 
     }
 
@@ -55,19 +89,37 @@ class ReflectingActivity : Activity
 
     public string GetRandomQuestion()
     {
-        return " ";
+        Random _randomPrompt = new Random();
+
+        int index = 0;
+
+        do
+        {
+            index = _randomPrompt.Next(_questions.Count);
+
+        } while (_usedQuestions.Contains(index));
+
+        _usedQuestions.Add(index);
+
+        return _questions[index];
+
     }
 
     public void DisplayPrompt()
     {
+        string prompt = GetRandomPrompt();
+        Console.WriteLine($"--- {prompt} ---");
 
     }
 
     public void DisplayQuestion()
     {
+        string question = GetRandomQuestion();
 
-    }
+        Console.Write($"> {question} ");
+        ShowSpinner(5);
+        Console.Write("\b \b");
+        Console.WriteLine();
 
-    
-    
+    }  
 }

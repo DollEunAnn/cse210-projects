@@ -19,7 +19,16 @@ class Activity
         Console.WriteLine($"Welcome to the {_name}");
         Console.WriteLine();   
         Console.WriteLine($"{_description}");
-        Console.WriteLine();   
+        Console.WriteLine();
+        Console.Write("How long, in seconds, would you like for your session? ");
+        int duration = Int32.Parse(Console.ReadLine());
+        _duration = duration;
+        
+        Console.Clear();
+        Console.WriteLine("Get ready...");
+        ShowSpinner(5);
+        Console.Write("\b \b");
+        Console.WriteLine();    
     
     }
 
@@ -29,7 +38,7 @@ class Activity
         Console.WriteLine("Well done!!");
         Console.WriteLine();
         Console.WriteLine($"You have completed another {_duration} seconds of {_name}");
-        ShowSpinner(3);
+        ShowSpinner(5);
     }
 
     public void ShowSpinner(int seconds)
