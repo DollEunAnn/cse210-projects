@@ -3,7 +3,7 @@ using System;
 /** 
 Exceed requirements:
  - For the get prompt in Reflecting Activity - Make sure no random prompts/questions are selected until they have all been used at least once in that session.
- -
+ - 
 
 **/
 class Program
@@ -43,6 +43,9 @@ class Program
                     listingActivity.DisplayEndingMessage();
                 break;
                 case 4:
+                    Console.Clear();
+                    Console.WriteLine("Thank you for using the Daily Activity App.");
+                    Environment.Exit(0);
                 break;
                 default:
                 break;
