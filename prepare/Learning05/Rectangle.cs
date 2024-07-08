@@ -1,13 +1,20 @@
 using System;
 
-class Rectangle
+class Rectangle : Shape
 {
     private double _length;
     private double _width;
 
-    public double GetArea()
+    public Rectangle(double length, double width, string color) : base (color)
     {
-        double area = 0;
+        _length = length;
+        _width = width;     
+
+    }
+
+    public override double GetArea()
+    {
+        double area = _length * _width;
         return area;
     }
     

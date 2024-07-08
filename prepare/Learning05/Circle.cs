@@ -1,12 +1,18 @@
 using System;
 
-class Circle
+class Circle : Shape
 {
     private double _radius;
 
-    public double GetArea()
+    public Circle(double radius, string color) : base (color)
     {
-        double area = 0;
+        _radius = radius;
+
+    }
+
+    public override double GetArea()
+    {
+        double area = Math.PI * Math.Pow(_radius,2);
         return area;
     }
 }

@@ -2,7 +2,12 @@ using System;
 
 class Shape
 {
-    private string _color;
+    private string _color; 
+
+    public Shape(string color)
+    {
+        _color = color;
+    }
 
     public string GetColor()
     {
@@ -14,7 +19,7 @@ class Shape
         _color = color;
     }
 
-    public double GetArea()
+    public virtual double GetArea()
     {
         double area = 0;
         return area;
