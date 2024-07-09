@@ -29,10 +29,12 @@ class Video
         return count;
     }
 
-    public void DisplayVideo()
+    public void DisplayVideoDetails()
     {
         Console.WriteLine($"Title: {_title}");
-        Console.WriteLine($"By: {_author} - Duration: {_length}");
+        Console.WriteLine($"Author: {_author}");
+        Console.WriteLine($"Duration: {_length} seconds");
+        Console.WriteLine($"No of Comments: {_comments.Count()}");
 
     }
     
