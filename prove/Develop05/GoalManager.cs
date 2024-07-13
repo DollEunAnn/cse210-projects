@@ -14,6 +14,7 @@ public class GoalManager
     public void Start()
     {
         // menu
+        Console.WriteLine();
         Console.WriteLine("Menu Options");
         Console.WriteLine("  1. Create New Goal");
         Console.WriteLine("  2. List Goals");
@@ -21,31 +22,41 @@ public class GoalManager
         Console.WriteLine("  4. Load Goals");
         Console.WriteLine("  5. Record Event");
         Console.WriteLine("  6. Quit");
-        Console.WriteLine("Select a choice from menu: ");
+        Console.Write("Select a choice from menu: ");
 
     }
 
     public void DisplayPlayerInfo()
     {
+        Console.WriteLine();
         Console.WriteLine($"You have {_score} points.");
     }
 
     public void ListGoalNames()
     {
+        Console.WriteLine("The goals are:");
+
+        int i = 1;
+
         foreach (var goal in _goals)
         {
-            Console.WriteLine($"{goal.GetDetailsString()}");
+            Console.WriteLine($"{i}. {goal.GetStringRepresentation()}");
+            i++;
         }
 
     }
 
     public void ListGoalDetails()
     {
-
+         foreach (var goal in _goals)
+        {
+            //Console.WriteLine($"{goal.GetDetailsString()}");
+        }
     }
 
     public void CreateGoal()
     {
+        Console.WriteLine();
         Console.WriteLine("The type of Goals are: ");
         Console.WriteLine("1. Simple Goal");
         Console.WriteLine("2. Eternal Goal");

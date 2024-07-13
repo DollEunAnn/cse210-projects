@@ -31,7 +31,8 @@ class ChecklistGoal : Goal
 
     public override string GetStringRepresentation()
     {
-        return "";
+        string if_completed = IsCompleted() ? "[X]" : "[ ]";
+        return $"{if_completed} {_name} ({_description}) -- Currently completed: {_amountCompleted}/{_target}";
     }
     
 }

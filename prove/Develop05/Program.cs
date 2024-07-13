@@ -22,7 +22,6 @@ class Program
                 break;
 
                 case 2: // list goals
-                Console.WriteLine("2");
                 goalManager.ListGoalNames();
                 break;
 
