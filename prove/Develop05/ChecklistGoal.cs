@@ -26,13 +26,12 @@ class ChecklistGoal : Goal
 
     public override string GetDetailsString()
     {
-        return "";
+        return $"{_name} ({_description})";
     }
 
     public override string GetStringRepresentation()
     {
-        string if_completed = IsCompleted() ? "[X]" : "[ ]";
-        return $"{if_completed} {_name} ({_description}) -- Currently completed: {_amountCompleted}/{_target}";
+        return $"{_name} ({_description}) -- Currently completed: {_amountCompleted}/{_target}";
     }
     
 }

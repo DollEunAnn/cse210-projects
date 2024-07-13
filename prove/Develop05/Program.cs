@@ -24,7 +24,7 @@ class Program
                 break;
 
                 case 2: // list goals
-                goalManager.ListGoalNames();
+                goalManager.ListGoalDetails();
                 break;
 
                 case 3: // save goals
@@ -38,7 +38,7 @@ class Program
                 break;
 
                 case 5: // record event
-                Console.WriteLine("5");
+                goalManager.ListGoalNames();
                 goalManager.RecordEvent();
                 break;
 

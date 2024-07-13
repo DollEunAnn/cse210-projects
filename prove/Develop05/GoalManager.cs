@@ -32,7 +32,24 @@ public class GoalManager
         Console.WriteLine($"You have {_score} points.");
     }
 
+    /**
+    Lists the names of each of the goals.
+    **/
     public void ListGoalNames()
+    {
+        int i = 1;
+        foreach (var goal in _goals)
+        {
+            Console.WriteLine($"{i}. {goal.GetDetailsString()}");
+            i++;
+        }
+        
+    }
+
+    /**
+     Lists the details of each goal (including the checkbox of whether it is complete).
+     **/
+    public void ListGoalDetails()
     {
         Console.WriteLine("The goals are:");
 
@@ -40,17 +57,9 @@ public class GoalManager
 
         foreach (var goal in _goals)
         {
-            Console.WriteLine($"{i}. {goal.GetStringRepresentation()}");
+            string if_completed = goal.IsCompleted() ? "[X]" : "[ ]";
+            Console.WriteLine($"{i}. {if_completed} {goal.GetStringRepresentation()}");
             i++;
-        }
-
-    }
-
-    public void ListGoalDetails()
-    {
-         foreach (var goal in _goals)
-        {
-            //Console.WriteLine($"{goal.GetDetailsString()}");
         }
     }
 
@@ -72,8 +81,6 @@ public class GoalManager
 
         Console.Write("What is the amount of points associated with this goal? ");
         int score = Int32.Parse(Console.ReadLine());
-
-
 
         switch (input)
         {
@@ -106,6 +113,12 @@ public class GoalManager
 
     public void RecordEvent()
     {
+        Console.WriteLine("Which goal did you accomplish? ");
+        int goalIndex = Int32.Parse(Console.ReadLine());
+
+        goalIndex = goalIndex - 1;
+
+        _goals[goalIndex].RecordEvent();
 
     }
 

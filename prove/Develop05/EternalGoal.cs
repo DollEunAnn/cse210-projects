@@ -19,8 +19,7 @@ class EternalGoal : Goal
 
     public override string GetStringRepresentation()
     {
-        string if_completed = IsCompleted() ? "[X]" : "[ ]";
-        return $"{if_completed} {_name} ({_description})";
+        return $"{_name} ({_description})";
     }
     
 }

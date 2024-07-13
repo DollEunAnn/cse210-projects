@@ -20,7 +20,7 @@ abstract class Goal
 
     public virtual string GetDetailsString()
     {
-        return "";
+        return $"{_name} {_description}";
     }
 
     public abstract string GetStringRepresentation();  

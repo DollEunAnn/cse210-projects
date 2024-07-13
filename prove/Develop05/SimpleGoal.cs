@@ -12,7 +12,7 @@ class SimpleGoal : Goal
 
     public override void RecordEvent()
     {
-         _isComplete = true;
+        _isComplete = true;
 
     }
 
@@ -23,8 +23,7 @@ class SimpleGoal : Goal
 
     public override string GetStringRepresentation()
     {
-        string if_completed = IsCompleted() ? "[X]" : "[ ]";
-        return $"{if_completed} {_name} ({_description})";
+        return $"{_name} ({_description})";
     }
 
 }
