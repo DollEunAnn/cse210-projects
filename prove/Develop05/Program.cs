@@ -10,7 +10,6 @@ class Program
 
         do 
         {
-            Console.Clear();
             Console.WriteLine();
             goalManager.DisplayPlayerInfo();
             goalManager.Start();
@@ -19,6 +18,9 @@ class Program
             switch(userInput) {
                 case 1: // create new goal
                 goalManager.CreateGoal();
+                //goalManager.ShowSpinner(2); 
+                Console.WriteLine($"Saved");
+                //Thread.Sleep(500);
                 break;
 
                 case 2: // list goals
@@ -42,7 +44,7 @@ class Program
 
                 default:
                 break;
-            }
+            }           
         
 
         }while(userInput != 6);

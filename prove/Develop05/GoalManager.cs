@@ -129,4 +129,20 @@ public class GoalManager
 
     }
 
+    public void ShowSpinner(int seconds)
+    {
+        string frames = @"/-\|";
+
+        Console.CursorVisible = false;
+
+        for(int i = seconds; i > 0; i--)
+        {
+            foreach(var c in frames)
+            {
+                Console.Write($"\b{c}");
+                Thread.Sleep(300);
+            }
+        }
+    }
+
 }
