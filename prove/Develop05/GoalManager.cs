@@ -32,6 +32,10 @@ public class GoalManager
 
     public void ListGoalNames()
     {
+        foreach (var goal in _goals)
+        {
+            Console.WriteLine($"{goal.GetDetailsString()}");
+        }
 
     }
 
@@ -87,11 +91,6 @@ public class GoalManager
                 Console.WriteLine("Please enter vaules from 1 - 3");
                 break;
         }
-
-
-
-
-
     }
 
     public void RecordEvent()
@@ -101,6 +100,16 @@ public class GoalManager
 
     public void SaveGoals()
     {
+        Console.Write("What is the filename of the goal file? ");
+        string fileName = Console.ReadLine();
+
+        using (StreamWriter outputFile = new StreamWriter(fileName))
+        {
+            foreach (var goal in _goals)
+            {
+                outputFile.WriteLine($"{goal.GetStringRepresentation()}");
+            }
+        }
 
     }
 

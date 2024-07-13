@@ -3,9 +3,12 @@ using System;
 class SimpleGoal : Goal
 {
     private bool _isComplete;
-    
-    public SimpleGoal(string name, string description, int points) : base (name, description, points)
+
+
+    public SimpleGoal(string name, string description, int points) : base(name, description, points)
     {
+
+        _isComplete = false;
 
     }
 
@@ -21,7 +24,20 @@ class SimpleGoal : Goal
 
     public override string GetStringRepresentation()
     {
-        return "";
+        string if_completed;
+
+        if (IsCompleted())
+        {
+            if_completed = "[X]";
+
+        }
+        else
+        {
+            if_completed = "[ ]";
+
+        }
+
+        return $"{if_completed} {_name} ({_description})";
     }
-    
+
 }

@@ -18,7 +18,6 @@ class Program
 
             switch(userInput) {
                 case 1: // create new goal
-                Console.WriteLine("1");
                 goalManager.CreateGoal();
                 break;
 
