@@ -21,5 +21,11 @@ class EternalGoal : Goal
     {
         return $"{_name} ({_description})";
     }
+
+    public override string GetStringSave()
+    {
+        return $"EternalGoal:{_name},{_description},{_points}";
+
+    }
     
 }

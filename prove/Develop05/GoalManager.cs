@@ -25,7 +25,9 @@ public class GoalManager
         Console.Write("Select a choice from menu: ");
 
     }
-
+    /**
+     Displays the players current score.
+    **/
     public void DisplayPlayerInfo()
     {
         Console.WriteLine();
@@ -63,6 +65,10 @@ public class GoalManager
         }
     }
 
+    /**
+    Asks the user for the information about a new goal.
+    Then, creates the goal and adds it to the list.
+    **/
     public void CreateGoal()
     {
         Console.WriteLine();
@@ -111,9 +117,13 @@ public class GoalManager
         }
     }
 
+    /**
+    Asks the user which goal they have done and then records the event by 
+    calling the RecordEvent method on that goal.
+    **/
     public void RecordEvent()
     {
-        Console.WriteLine("Which goal did you accomplish? ");
+        Console.Write("Which goal did you accomplish? ");
         int goalIndex = Int32.Parse(Console.ReadLine());
 
         goalIndex = goalIndex - 1;
@@ -129,16 +139,19 @@ public class GoalManager
 
         using (StreamWriter outputFile = new StreamWriter(fileName))
         {
+            // records score
+            outputFile.WriteLine(_score);
+            
             foreach (var goal in _goals)
             {
-                outputFile.WriteLine($"{goal.GetStringRepresentation()}");
+                outputFile.WriteLine($"{goal.GetStringSave()}");
             }
         }
-
     }
 
     public void LoadGoals()
     {
+
 
     }
 

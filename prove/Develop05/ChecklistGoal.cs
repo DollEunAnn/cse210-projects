@@ -16,12 +16,19 @@ class ChecklistGoal : Goal
 
     public override void RecordEvent()
     {
-
+        _amountCompleted++;
     }
 
     public override bool IsCompleted()
     {
-        return false;
+        if(_amountCompleted == _target)
+        {
+            return true;
+
+        } else
+        {
+            return false;
+        }
     }
 
     public override string GetDetailsString()
@@ -32,6 +39,12 @@ class ChecklistGoal : Goal
     public override string GetStringRepresentation()
     {
         return $"{_name} ({_description}) -- Currently completed: {_amountCompleted}/{_target}";
+    }
+
+    public override string GetStringSave()
+    {
+        return $"ChecklistGoal:{_name},{_description},{_points},{_target},{_bonus}";
+
     }
     
 }

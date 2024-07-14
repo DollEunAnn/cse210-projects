@@ -26,4 +26,10 @@ class SimpleGoal : Goal
         return $"{_name} ({_description})";
     }
 
+    public override string GetStringSave()
+    {
+        return $"SimpleGoal:{_name},{_description},{_points},{_isComplete}";
+
+    }
+
 }

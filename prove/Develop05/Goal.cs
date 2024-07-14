@@ -23,5 +23,7 @@ abstract class Goal
         return $"{_name} {_description}";
     }
 
-    public abstract string GetStringRepresentation();  
+    public abstract string GetStringRepresentation();
+
+    public abstract string GetStringSave(); 
 }
