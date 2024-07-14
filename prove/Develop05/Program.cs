@@ -36,7 +36,6 @@ class Program
                 break;
 
                 case 4: // load goals
-                Console.WriteLine("4");
                 goalManager.LoadGoals();
                 break;
 
