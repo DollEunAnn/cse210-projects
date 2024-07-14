@@ -16,6 +16,7 @@ class ChecklistGoal : Goal
 
     public override void RecordEvent()
     {
+        // all at the amount complete e.g. [0/2] => [1/2]
         _amountCompleted++;
 
     }
@@ -48,10 +49,20 @@ class ChecklistGoal : Goal
         return $"ChecklistGoal:{_name},{_description},{_points},{_target},{_bonus}";
 
     }
-    
+
     public override int GetPoints()
     {
-        return _points;
+        // checks if the amountCompleted GREATER to target
+        // if true - apply bonus
+        if (_amountCompleted > _target)
+        {
+            return _bonus + _points;
+        }
+        else
+        {
+            return _points;
+        }
+
     }
 
 }

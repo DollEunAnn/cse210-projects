@@ -131,6 +131,9 @@ public class GoalManager
         _goals[goalIndex].RecordEvent();
 
         _score += _goals[goalIndex].GetPoints();
+
+        Console.WriteLine($"Congratulations! You have earned {_goals[goalIndex].GetPoints()}");
+        Console.WriteLine($"You have now {_score}");
     }
 
     /**

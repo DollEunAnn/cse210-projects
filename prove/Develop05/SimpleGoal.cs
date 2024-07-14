@@ -15,7 +15,7 @@ class SimpleGoal : Goal
         // set the goal - completed
         // then add points to the current 
         _isComplete = true;
-        
+
     }
 
     public override bool IsCompleted()
@@ -31,7 +31,6 @@ class SimpleGoal : Goal
     public override string GetStringSave()
     {
         return $"SimpleGoal:{_name},{_description},{_points},{_isComplete}";
-
     }
 
     public override int GetPoints()

@@ -9,8 +9,8 @@ class EternalGoal : Goal
 
     public override void RecordEvent()
     {
-
-
+        // nothing to be completed
+        // keeps recoding the score
     }
 
     public override bool IsCompleted()
@@ -26,7 +26,6 @@ class EternalGoal : Goal
     public override string GetStringSave()
     {
         return $"EternalGoal:{_name},{_description},{_points}";
-
     }
 
     public override int GetPoints()
