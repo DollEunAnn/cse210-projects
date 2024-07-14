@@ -25,5 +25,7 @@ abstract class Goal
 
     public abstract string GetStringRepresentation();
 
-    public abstract string GetStringSave(); 
+    public abstract string GetStringSave();
+
+    public abstract int GetPoints(); 
 }

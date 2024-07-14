@@ -130,8 +130,12 @@ public class GoalManager
 
         _goals[goalIndex].RecordEvent();
 
+        _score += _goals[goalIndex].GetPoints();
     }
 
+    /**
+     Saves the list of goals to a file.
+     **/
     public void SaveGoals()
     {
         Console.Write("What is the filename of the goal file? ");
@@ -149,6 +153,9 @@ public class GoalManager
         }
     }
 
+    /**
+    Loads the list of goals from a file.
+    **/
     public void LoadGoals()
     {
 

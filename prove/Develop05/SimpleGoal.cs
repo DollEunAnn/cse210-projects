@@ -12,8 +12,10 @@ class SimpleGoal : Goal
 
     public override void RecordEvent()
     {
+        // set the goal - completed
+        // then add points to the current 
         _isComplete = true;
-
+        
     }
 
     public override bool IsCompleted()
@@ -31,5 +33,12 @@ class SimpleGoal : Goal
         return $"SimpleGoal:{_name},{_description},{_points},{_isComplete}";
 
     }
+
+    public override int GetPoints()
+    {
+        return _points;
+    }
+
+
 
 }

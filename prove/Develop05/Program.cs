@@ -1,5 +1,9 @@
 using System;
 
+/**
+Exceed Requirements:
+- Added spinner
+**/
 class Program
 {
     static void Main(string[] args)
@@ -28,7 +32,6 @@ class Program
                 break;
 
                 case 3: // save goals
-                Console.WriteLine("3");
                 goalManager.SaveGoals();
                 break;
 
