@@ -18,15 +18,15 @@ class ChecklistGoal : Goal
     {
         // all at the amount complete e.g. [0/2] => [1/2]
         _amountCompleted++;
+        IsCompleted();
 
     }
 
     public override bool IsCompleted()
     {
-        if (_amountCompleted == _target)
+        if (_amountCompleted >= _target)
         {
             return true;
-
         }
         else
         {

@@ -13,7 +13,7 @@ public class GoalManager
 
     public void Start()
     {
-        // menu
+        // Menu
         Console.WriteLine();
         Console.WriteLine("Menu Options");
         Console.WriteLine("  1. Create New Goal");
@@ -42,7 +42,7 @@ public class GoalManager
         int i = 1;
         foreach (var goal in _goals)
         {
-            Console.WriteLine($"{i}. {goal.GetDetailsString()}");
+            Console.WriteLine($"{i}. ({goal.GetDetailsString()})");
             i++;
         }
 
@@ -132,8 +132,8 @@ public class GoalManager
 
         _score += _goals[goalIndex].GetPoints();
 
-        Console.WriteLine($"Congratulations! You have earned {_goals[goalIndex].GetPoints()}");
-        Console.WriteLine($"You have now {_score}");
+        Console.WriteLine($"Congratulations! You have earned {_goals[goalIndex].GetPoints()} points.");
+        Console.WriteLine($"You have now {_score}.");
     }
 
     /**
@@ -234,14 +234,17 @@ public class GoalManager
 
                         _goals.Add(checklistGoal);
 
+                        checklistGoal.IsCompleted();
+
                         // records the amount completed
                         if (amountCompleted != 0)
                         {
                             for (int i = 0; i < amountCompleted; i++)
                             {
-                                checklistGoal.RecordEvent();
+                                checklistGoal.RecordEvent();   
                             }
                         }
+
 
                     }
 

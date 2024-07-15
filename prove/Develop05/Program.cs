@@ -22,26 +22,28 @@ class Program
             switch(userInput) {
                 case 1: // create new goal
                 goalManager.CreateGoal();
-                //goalManager.ShowSpinner(2); 
-                Console.WriteLine($"Saved");
-                //Thread.Sleep(500);
+                goalManager.ShowSpinner(2);
                 break;
 
                 case 2: // list goals
                 goalManager.ListGoalDetails();
+                goalManager.ShowSpinner(2);
                 break;
 
                 case 3: // save goals
                 goalManager.SaveGoals();
+                goalManager.ShowSpinner(2);
                 break;
 
                 case 4: // load goals
                 goalManager.LoadGoals();
+                goalManager.ShowSpinner(2);
                 break;
 
                 case 5: // record event
                 goalManager.ListGoalNames();
                 goalManager.RecordEvent();
+                goalManager.ShowSpinner(2);
                 break;
 
                 default:
