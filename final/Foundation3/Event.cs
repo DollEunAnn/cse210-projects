@@ -1,6 +1,9 @@
 using System;
 using System.Net.Sockets;
 using System.Text;
+using System.Text.RegularExpressions;
+
+// Reference for space between words: https://stackoverflow.com/questions/272633/add-spaces-before-capital-letters
 
 class Event
 {
@@ -25,16 +28,21 @@ class Event
 
         details.AppendLine($"Title: {_title}");
         details.AppendLine($"Date: {_date} - Time: {_time}");
-        details.AppendLine($"Address: {_address.CompleteAddress()}");
+        details.Append($"Address: {_address.CompleteAddress()}");
 
         return details.ToString();
     }
 
-    public string DisplayEventShortDetails()
+    public string DisplayEventShortDetails(string type)
     {
         StringBuilder details = new StringBuilder();
 
+        string newValue = Regex.Replace(type, "([a-z])([A-Z])", "$1 $2");
 
-        return "";
+        details.AppendLine($"Type of Event: {newValue}");
+        details.AppendLine($"Title: {_title}");
+        details.AppendLine($"Date: {_date}");
+
+        return details.ToString();
     }     
 }
