@@ -35,6 +35,6 @@ class Activity
 
     public string GetSummary()
     {
-        return $"{_date} {_activityName} ({_length} min) - Distance {Distance()} km, Speed {Speed()} kph, Pace: {Pace()} min per km";
+        return $"{_date} {_activityName} ({_length} min) - Distance {Math.Round(Distance(),2)} km, Speed {Math.Round(Speed(),2)} kph, Pace: {Math.Round(Pace(),2)} min per km";
     }
 }

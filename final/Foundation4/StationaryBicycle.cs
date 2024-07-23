@@ -12,7 +12,7 @@ class StationaryBicycle : Activity
 
     public override double Distance()
     {
-        double distance = _speed * _length * 60;
+        double distance = _speed * _length / 60.0;
         return distance;
     }
 
@@ -23,7 +23,7 @@ class StationaryBicycle : Activity
 
     public override double Pace()
     {
-        double pace = 60 / _speed;
+        double pace = 60.0 / _speed;
 
         return pace;
     }

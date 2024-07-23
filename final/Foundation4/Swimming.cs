@@ -11,20 +11,20 @@ class Swimming : Activity
 
     public override double Distance()
     {
-        double distance = _numberOfLaps * 50 / 1000;
+        double distance = _numberOfLaps * 50 / 1000.0;
         return distance;
     }
 
     public override double Speed()
     {        
-        double speed = Distance() / _length * 60;
+        double _speed = Distance() / _length * 60.0;
 
-        return speed;
+        return _speed;
     }
 
     public override double Pace()
     {
-        double pace = 60 / Speed();
+        double pace = 60.0 / Speed();
 
         return pace;
     }

@@ -17,7 +17,7 @@ class Running : Activity
 
     public override double Speed()
     {
-        double speed = _distance/_length * 60;
+        double speed = _distance/_length * 60.0;
         
         return speed;
     }
